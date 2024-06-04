@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    
+}
+#current-image-container{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto; 
+    border:solid black;
+    background-color: black;
+    color: white;
+    margin-bottom: 50px;
+    padding: 50px;
+    padding-top: 20px;
+}

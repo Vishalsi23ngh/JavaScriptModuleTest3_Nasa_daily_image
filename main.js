@@ -1,0 +1,83 @@
+const baseUrl ="https://api.nasa.gov/planetary/apod" 
+
+const api_key = "NGQF6lUl5IIi06xnNSD4m6DWY1gqOgQBN1thqx5w";
+let date = new Date().toISOString().split("T")[0];
+let url = baseUrl+`?date=${date}&api_key=${api_key}`;
+console.log(url);
+let arr = [];
+
+// default value starts here
+async function getImageOfTheDay(){
+arr.push(date);
+const response = await fetch(url);
+const data =await response.json();
+ // for the paragraph
+const explanation = data.explanation;
+const para = document.getElementById("current-image-container");
+const val = para.querySelector("p");
+val.innerHTML = explanation;
+console.log(explanation);
+
+// for the title
+const title = data.title;
+const Title = para.querySelector("h2");
+Title.textContent = title;
+
+// for the image
+ const img = data.url;
+ const Img = para.querySelector("img");
+ Img.src = img;
+
+ // for heading
+ const heading = `Picture on ${date}`;
+ const Heading = para.querySelector("h1");
+ Heading.innerText = heading;
+
+ 
+}
+getImageOfTheDay();
+//default finish here
+
+
+
+let dateByuser = document.getElementById("search-input");
+let btn = document.getElementById("btn");
+
+btn.addEventListener("click", ()=>{
+    async function getCurrentImageOfTheDay(){
+        if(dateByuser.value){
+            date = dateByuser.value;
+            let url = baseUrl+`?date=${date}&api_key=${api_key}`;
+           console.log(date);
+           arr.push(date);
+           const response = await fetch(url);
+           const data = await response.json();
+            // for the paragraph
+           const explanation = data.explanation;
+           const para = document.getElementById("current-image-container");
+           const val = para.querySelector("p");
+           val.innerHTML = explanation;
+           console.log(explanation);
+
+           // for the title
+           const title = data.title;
+           const Title = para.querySelector("h2");
+           Title.textContent = title;
+
+           // for the image
+            const img = data.url;
+            const Img = para.querySelector("input");
+            Img.src = img;
+
+            // for heading
+            const heading = `Picture on ${date}`;
+            const Heading = para.querySelector("h1");
+            Heading.innerText = heading;
+
+           
+        }else{
+           console.log("please eneter another date");
+       }
+    }
+    getCurrentImageOfTheDay();
+});
