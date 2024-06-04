@@ -66,7 +66,7 @@ btn.addEventListener("click", ()=>{
 
            // for the image
             const img = data.url;
-            const Img = para.querySelector("input");
+            const Img = para.querySelector("img");
             Img.src = img;
 
             // for heading
@@ -80,4 +80,18 @@ btn.addEventListener("click", ()=>{
        }
     }
     getCurrentImageOfTheDay();
+
+    function displaySearchHistory() {
+        const searchHistoryList = document.getElementById("search-history");
+    
+        // Clear previous list items
+        searchHistoryList.innerHTML = "";
+    
+        // Add list items for each date
+        arr.forEach(date => {
+            const listItem = document.createElement("li");
+            listItem.textContent = date;
+            searchHistoryList.appendChild(listItem);
+        });
+    }
 });
