@@ -1,17 +1,22 @@
+*{
+     background-color: rgb(17, 15, 15);
+}
 .container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
 }
 #current-image-container{
     display: flex;
     flex-direction: column;
     height: auto;
-    width: auto; 
+    width: 70%; 
     border:solid black;
     background-color: black;
-    color: white;
+    color: rgb(236, 230, 230);
     margin-bottom: 50px;
-    padding: 50px;
-    padding-top: 20px;
+    padding: 5px;
+    padding-top: 5px;
 }
